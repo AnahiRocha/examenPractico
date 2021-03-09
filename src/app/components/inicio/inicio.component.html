@@ -1,0 +1,52 @@
+<app-bienvenida></app-bienvenida>
+<app-mascotas></app-mascotas>
+<app-servicios></app-servicios>
+<div class="container-fluid mt-5 mb-5">
+  <div class="container">
+    <button (click)="ocultarComponente(false)" *ngIf="aux">Ocultar</button>
+    <button (click)="ocultarComponente(true)" *ngIf="!aux">Mostrar</button>
+  </div>
+</div>
+
+
+<div *ngIf="aux" class="container-fluid mt-5 mb-5">
+  <div class="container">
+    <div class="row mb-5 ">
+                    <div class="col-sm-12 " >
+                        <h3 class="display-4 text-center " style="color: #e45826;">Alumnos</h3>
+                    </div>
+                </div>
+ 
+
+    <table  class="table">
+  <thead>
+    <tr >
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido paterno</th>
+      <th scope="col">Apellido materno</th>
+      <th scope="col">Grupo</th>
+      <th scope="col">Promedio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let alumno of alumnos"   >
+      <td>{{alumno.id}}</td>
+      <td>{{alumno.nombre}}</td>
+      <td>{{alumno.aPaterno}}</td>
+      <td>{{alumno.aMaterno}} </td>
+      <td>{{alumno.grupo}} </td>
+      <td>{{alumno.promedio}} <span *ngIf="alumno.promedio < 7.5" style="color: red;">Reprobado</span> </td>
+  
+     
+    </tr>
+    
+  </tbody>
+</table>
+   
+  </div>
+  
+</div>
+
+		
+
